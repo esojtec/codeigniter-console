@@ -1,0 +1,30 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
+
+class {{ $name }}
+{
+    // Config library
+    var $config = [];
+    var $CI = null;
+
+    public function __Construct($config = [])
+    {
+        foreach($config as $key => $value)
+        {
+            // If exists, assign key => value
+            if(isset($this->config[$key]))
+                $this->config[$key] = $value;
+        }
+    }
+
+    /*
+    * This is a great wat to call &get_instance like this
+    * $this->load()->helper('url_helper');
+    */
+    public function load()
+    {
+        if($this->CI == null)
+            $this->CI = &get_instance();
+            
+        return $this->CI;
+    }
+}

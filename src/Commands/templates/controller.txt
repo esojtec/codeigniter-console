@@ -1,0 +1,62 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
+
+{{ $model }}
+
+class {{ $name }} extends {{ $extends }} {
+
+	/**
+	 * Index Page for this controller.
+	 *
+	 */
+
+	public function index()
+	{
+		
+	}
+	{{ $resources }}
+	/**
+	 * Create Page for this controller.
+	 *
+	 */
+	 public function create()
+	 {
+
+	 }
+
+	 /**
+	 * Store Page for this controller.
+	 *
+	 */
+	 public function store($id)
+	 {
+
+	 }
+
+	/**
+	 * Edit Page for this controller.
+	 *
+	 */
+	 public function edit()
+	 {
+
+	 }
+
+	/**
+	 * Update Page for this controller.
+	 *
+	 */
+	 public function update($id)
+	 {
+
+	 }
+
+	/**
+	 * Destroy Page for this controller.
+	 *
+	 */
+	 public function destroy($id)
+	 {
+
+	 }
+	 {{ $resources }}
+}

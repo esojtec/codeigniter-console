@@ -1,0 +1,11 @@
+{{ $blade }}
+@extends('{{ $layouts }}')
+@section('content')
+    <div class="container">
+    </div>
+@endsection
+{{ $blade }}
+{{ $html }}
+<div class="container">
+</div>
+{{ $html }}
