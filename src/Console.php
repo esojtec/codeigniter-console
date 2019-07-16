@@ -33,13 +33,14 @@ class Console
         $application->add(new Commands\MigrateCommand());
         $application->add(new Commands\RollbackCommand());
         $application->add(new Commands\DeployCommand());
+        $application->add(new Commands\AppCommand());
         $application->run();
     }
 
     public function addCommand($command)
     {
-        if($command instanceof Application === FALSE)
-            throw('Debe ser una instancia de Symfony\Component\Console\Application');
+        if($command instanceof Symfony\Component\Console\Command\Command === FALSE)
+            throw('Debe ser una instancia de Symfony\Component\Console\Command\Command');
 
         $this->application->add($command);
     }

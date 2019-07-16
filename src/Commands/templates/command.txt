@@ -1,0 +1,37 @@
+<?php
+namespace App\Commands;
+
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Output\OutputInterface;
+
+class {{ $name }} extends Command
+{
+    protected function configure()
+    {
+        $this
+            ->setName('app:command')
+            ->setDescription('description name command')
+            ->addArgument(
+                'name',
+                InputArgument::REQUIRED,
+                'description argument name'
+            )
+            ->addOption(
+                'option',
+                'o',
+                InputOption::VALUE_OPTIONAL,
+                'description option name',
+            )
+        ;
+    }
+
+    protected function execute(InputInterface $input, OutputInterface $output)
+    {
+        $name = $input->getArgument('name');
+        $option = $input->getOption('extends');
+
+    }
+}
