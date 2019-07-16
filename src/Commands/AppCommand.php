@@ -46,7 +46,7 @@ class AppCommand extends Command
             return;
         }
         
-        $file = file_get_contents($this->templates . 'commands.txt');
+        $file = file_get_contents($this->templates . 'command.txt');
         $file = preg_replace($search, $replace, $file);
         $file = preg_replace("/[\n\r]{3,}/", "\n\n", $file);
 
