@@ -32,7 +32,7 @@ class DeployCommand extends Command
             "/\$config['permitted_uri_chars\'] = defined('STDIN')? 'a-z 0-9~%.:_\-\=' : 'a-z 0-9~%.:_\-';/",
         ];
 
-        if(file_exists($this->controllers . 'MigrationController.php'))
+        if(file_exists($this->controller . 'MigrationController.php'))
         {
             $output->writeln("<comment>MigrationController.php already exists</comment>");
             $helper = $this->getHelper('question');
@@ -51,7 +51,7 @@ class DeployCommand extends Command
         try
         {
             file_put_contents($this->config . 'config.php', $file);
-            file_put_contents($this->controllers . 'MigrationController.php', $controller);
+            file_put_contents($this->controller . 'MigrationController.php', $controller);
         } catch(Exception $e)
         {
             $output->writeln($e->getMessage());
