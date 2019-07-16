@@ -24,13 +24,9 @@ class DeployCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $search = [
-            "/\$config\['permitted_uri_chars'\] = 'a-z 0-9~%.:_\\-';/",
-        ];
+        $search = '$config[\'permitted_uri_chars\'] = \'a-z 0-9~%.:_\-\';';
 
-        $replace = [
-            '$config["permitted_uri_chars"] = defined("STDIN")? "a-z 0-9~%.:_\-=" : "a-z 0-9~%.:_\-";',
-        ];
+        $replace = '$config["permitted_uri_chars"] = defined("STDIN")? "a-z 0-9~%.:_\-=" : "a-z 0-9~%.:_\-";';
         
         if(file_exists($this->controller . 'MigrationController.php'))
         {
@@ -44,7 +40,7 @@ class DeployCommand extends Command
         }
         
         $file = file_get_contents(APPPATH . 'config/config.php');
-        $file = preg_replace($search, $replace, $file);
+        $file = strtr($file, $search, $replace);
 
         $controller = file_get_contents($this->templates . 'MigrationController.txt');
 
