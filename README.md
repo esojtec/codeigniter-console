@@ -1,3 +1,4 @@
+<<<<<<< aad1a130d94197b3dde2a7e1ffd25d0b7f04628d
 # Codeigniter Console
 Este paquete ha sido creado probado para **Codeiginiter 3.1.10** pero no debería tener ningún problema en ejecutarse en cualquier versión mayor a Codeigniter 3.0.
 
@@ -73,3 +74,8 @@ $console->initialize();
 // Añadimos un nuevo comando
 $console->addCommand(new App\Command\NewCommand());
 ```
+=======
+# codeigniter-console
+
+Codeigniter console with symphony console
+>>>>>>> Initial commit
