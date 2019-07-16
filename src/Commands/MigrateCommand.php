@@ -11,6 +11,7 @@ class MigrateCommand extends Command
 {
     protected $templates = __DIR__ . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR;
     protected $migrations = APPPATH . 'migrations' . DIRECTORY_SEPARATOR;
+    protected $core = __DIR__ . DIRECTORY_SEPARATOR . '../Core'. DIRECTORY_SEPARATOR;
 
     protected function configure()
     {
@@ -32,7 +33,7 @@ class MigrateCommand extends Command
         else
             $routing = ['controller' => 'MigrationController', 'function' => 'migrate'];
 
-        require_once BASEPATH . 'core/codeigniter.php';
+        require_once $this->core . 'codeigniter.php';
 
         // we get estatus for the migration
         $migration = $CI->get_estatus();
