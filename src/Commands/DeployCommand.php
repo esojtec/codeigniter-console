@@ -46,7 +46,7 @@ class DeployCommand extends Command
         $file = file_get_contents(APPPATH . 'config/config.php');
         $file = preg_replace($search, $replace, $file);
 
-        $controller = file_get_contents($this->templates, 'MigrationController.txt');
+        $controller = file_get_contents($this->templates . 'MigrationController.txt');
 
         try
         {

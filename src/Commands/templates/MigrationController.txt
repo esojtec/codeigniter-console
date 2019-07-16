@@ -1,4 +1,4 @@
-<?php 
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 class MigrationController extends CI_Controller
 {
     protected $estatus;
@@ -8,7 +8,7 @@ class MigrationController extends CI_Controller
         parent::__construct();
 
         if(! is_cli())
-            return show_error('Web acess forbiden');
+            return show_error('Web access forbiden');
         
         $this->load->database();
         
