@@ -9,9 +9,14 @@ class Console
     protected $commands = [];
     protected $application;
 
-    public function __construct($commands)
+    public function __construct($commands = [])
     {
         $this->_initialize();
+
+        foreach($commands as $command)
+        {
+            $this->addCommand($command);
+        }
     }
 
     public function _initialize()
@@ -20,13 +25,13 @@ class Console
 
         # We add here our codeigniter default commands
 
-        $application->add(new Esojtec\CodeigniterConsole\Commands\ControllerCommand());
-        $application->add(new Esojtec\CodeigniterConsole\Commands\ModelCommand());
-        $application->add(new Esojtec\CodeigniterConsole\Commands\LibraryCommand());
-        $application->add(new Esojtec\CodeigniterConsole\Commands\ViewCommand());
-        $application->add(new Esojtec\CodeigniterConsole\Commands\MigrationCommand());
-        $application->add(new Esojtec\CodeigniterConsole\Commands\MigrateCommand());
-        $application->add(new Esojtec\CodeigniterConsole\Commands\RollbackCommand());
+        $application->add(new Commands\ControllerCommand());
+        $application->add(new Commands\ModelCommand());
+        $application->add(new Commands\LibraryCommand());
+        $application->add(new Commands\ViewCommand());
+        $application->add(new Commands\MigrationCommand());
+        $application->add(new Commands\MigrateCommand());
+        $application->add(new Commands\RollbackCommand());
         $application->run();
     }
 
