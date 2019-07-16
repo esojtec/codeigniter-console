@@ -3,14 +3,40 @@ Este paquete ha sido creado probado para **Codeiginiter 3.1.10** pero no deberí
 
 ## Instalación 
 
-Para comenzar la instalación del paquete **codeigniter console ** debemos clonar el repositorio.
+Para comenzar la instalación del paquete **codeigniter console ** debemos clonar o tener el repositorio de **codeigniter 3** o para tener las características de **blade** y **eloquent** de **laravel**  clonar el repositorio de **laraigniter**.
 
 ```shell
-git clone https://github.com/esojtec/codeigniter-console.git
+https://github.com/bcit-ci/CodeIgniter.git
+```
+__Laraigniter__
+```shell
+https://github.com/recca0120/laraigniter.git
+```
+Y agregamos a composer el siguiente repositorio
+```shell
+{
+	"repositories":[{
+		"type": "vcs",
+		"url": "git@bitbucket.org:esojtec1990/codeigniter-console.git"
+	}],
+	"require": {
+		"php": ">=5.2.4",
+		"esojtec/codeigniter-console":"dev-master#v0.9"
+	},
+	"autoload": {
+		"psr-4": {
+			"App\\Models\\": "application/models",
+			"App\\Commands\\": "application/commands"
+		}
+}
 ```
 Ejecutamos el comando composer
 ```shell
 composer install
+```
+Copiamos el archivo artisan a la carpeta base
+```shell
+cp vendor/esojtec/codeigniter-console/src/artisan artisan
 ```
 ## Comandos
 Con este comando podremos ver los comandos disponibles
