@@ -12,6 +12,14 @@ Ejecutamos el comando composer
 ```shell
 composer install
 ```
+Copiamos el archivo artisan a la carpeta base
+```shell
+cp vendor/esojtec/codeigniter-console/src/artisan artisan
+```
+y finalmente ejecutamos deploy que modificara config y creara el controlador para realizar las migraciones
+```shell
+php artisan deploy
+```
 ## Comandos
 Con este comando podremos ver los comandos disponibles
 ```shell
