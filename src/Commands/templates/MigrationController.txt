@@ -1,0 +1,64 @@
+<?php 
+class MigrationController extends CI_Controller
+{
+    protected $estatus;
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        if(! is_cli())
+            return show_error('Web acess forbiden');
+        
+        $this->load->database();
+        
+        $this->load->library('migration');
+    }
+
+    public function migrate()
+    {
+        // Returns Current version string on success, FALSE on failure
+        $migration = $this->migration->latest();
+
+        if($migration === FALSE)
+            $this->estatus = $this->migration->error_string();
+        else
+            $this->estatus = $migration;
+    }
+
+    public function version($version)
+    {
+        $this->estatus = $this->migration->version($version);
+    }
+
+    public function rollback($steps = 1)
+    {
+        // migration order from the last to first one
+        
+        $migrations = array_keys(array_reverse($this->migration->find_migrations(), true));
+        $current_version = $this->_get_version();
+
+        $pos = array_search($current_version, $migrations);
+        
+        $migration = (($steps + $pos) >= count($migrations))?
+            $this->migration->version(0):
+            $this->migration->version($migrations[$steps + $pos]);
+
+
+        if($migration === FALSE)
+            $this->estatus = $this->migration->error_string();
+        else
+            $this->estatus = $migration;
+    }
+
+    public function get_estatus()
+    {
+        return $this->estatus;
+    }
+
+    protected function _get_version()
+	{
+		$row = $this->db->select('version')->get('migrations')->row();
+		return $row ? $row->version : '0';
+	}
+}
