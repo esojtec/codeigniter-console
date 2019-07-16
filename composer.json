@@ -13,7 +13,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "esojtec\\codeigniter-console\\": "src/"
+            "Esojtec\\CodeigniterConsole\\": "src/"
         }
     }
 }
