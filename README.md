@@ -1,2 +1,2 @@
-# CodeigniterConsole
+# Codeigniter Console
 Codeigniter COnsole
