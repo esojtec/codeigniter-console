@@ -31,7 +31,8 @@ class {{ $name }} extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $name = $input->getArgument('name');
-        $option = $input->getOption('extends');
+        $option = $input->getOption('option');
 
+        $output->writeln('command tested.');
     }
 }

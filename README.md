@@ -51,7 +51,7 @@ Si abrimos el archivo artisan de nuestro repositorio vamos hasta el final del ar
 use Esojtec\CodeigniterConsole\Console;
 
 $console = new Console;
-$console->initialize();
 // Añadimos un nuevo comando
-$console->addCommand(new App\Command\NewCommand());
+$console->addCommand(new App\Commands\NewCommand());
+$console->run();
 ```

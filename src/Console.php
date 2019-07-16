@@ -11,6 +11,7 @@ class Console
 
     public function __construct($commands = [])
     {
+        $this->application = new Application();
         $this->_initialize();
 
         foreach($commands as $command)
@@ -21,27 +22,35 @@ class Console
 
     public function _initialize()
     {
-        $application = new Application();
+        
 
-        # We add here our codeigniter default commands
+        # We load here our default commands
 
-        $application->add(new Commands\ControllerCommand());
-        $application->add(new Commands\ModelCommand());
-        $application->add(new Commands\LibraryCommand());
-        $application->add(new Commands\ViewCommand());
-        $application->add(new Commands\MigrationCommand());
-        $application->add(new Commands\MigrateCommand());
-        $application->add(new Commands\RollbackCommand());
-        $application->add(new Commands\DeployCommand());
-        $application->add(new Commands\AppCommand());
-        $application->run();
+        $this->application->add(new Commands\ControllerCommand());
+        $this->application->add(new Commands\ModelCommand());
+        $this->application->add(new Commands\LibraryCommand());
+        $this->application->add(new Commands\ViewCommand());
+        $this->application->add(new Commands\MigrationCommand());
+        $this->application->add(new Commands\MigrateCommand());
+        $this->application->add(new Commands\RollbackCommand());
+        $this->application->add(new Commands\DeployCommand());
+        $this->application->add(new Commands\AppCommand());
+        
     }
 
     public function addCommand($command)
     {
-        if($command instanceof Symfony\Component\Console\Command\Command === FALSE)
-            throw('Debe ser una instancia de Symfony\Component\Console\Command\Command');
+        if($command instanceof \Symfony\Component\Console\Command\Command === FALSE)
+        {
+            echo 'El comando deber ser una instancia de Symfony\Component\Console\Command\Command';
+            exit;
+        }
 
         $this->application->add($command);
+    }
+
+    public function run()
+    {
+        $this->application->run();
     }
 }
