@@ -1,0 +1,30 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Migration_{{ $name }} extends CI_Migration {
+
+        public function up()
+        {
+                $this->dbforge->add_field(array(
+                        '{{ $table }}_id' => array(
+                            'type' => 'BIGINT',
+                            'unsigned' => TRUE,
+                            'auto_increment' => TRUE
+                        ),
+                        {{ $timestamps }}
+                        'created_at' => array(
+                            'type' => 'datetime',
+                        ),
+                        'updated_at' => array(
+                            'type' => 'datetime',
+                        ),
+                        {{ $timestamps }}
+                ));
+                $this->dbforge->add_key('{{ $table }}_id', TRUE);
+                $this->dbforge->create_table('{{ $table }}', TRUE);
+        }
+
+        public function down()
+        {
+            $this->dbforge->drop_table('{{ $table }}');
+        }
+}

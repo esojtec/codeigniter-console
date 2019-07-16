@@ -1,0 +1,19 @@
+{
+    "name": "esojtec/codeigniter-console",
+    "description": "Codeigniter console with symphony console",
+    "require": {
+        "symfony/console": "^2.6.7"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jose Manuel Chavez Rodriguez",
+            "email": "esojtec@hotmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "esojtec\\codeigniter-console\\": "src/"
+        }
+    }
+}
