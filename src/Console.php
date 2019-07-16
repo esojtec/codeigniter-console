@@ -32,6 +32,7 @@ class Console
         $application->add(new Commands\MigrationCommand());
         $application->add(new Commands\MigrateCommand());
         $application->add(new Commands\RollbackCommand());
+        $application->add(new Commands\DeployCommand());
         $application->run();
     }
 
