@@ -1,4 +1,3 @@
-<<<<<<< 764cb1147c1dedef9c5a6312bd745595112a3cc7
 # Codeigniter Console
 Este paquete ha sido creado probado para **Codeiginiter 3.1.10** pero no debería tener ningún problema en ejecutarse en cualquier versión mayor a Codeigniter 3.0.
 
@@ -56,7 +55,3 @@ $console->initialize();
 // Añadimos un nuevo comando
 $console->addCommand(new App\Command\NewCommand());
 ```
-=======
-# CodeigniterConsole
-Codeigniter COnsole
->>>>>>> Initial commit
