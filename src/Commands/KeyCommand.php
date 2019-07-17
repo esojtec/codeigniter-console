@@ -31,8 +31,8 @@ class KeyCommand extends Command
 
         if($key == null)
         {
-            $key = PASSWORD_DEFAULT($key);
-            
+            $key = $this->random_key_string();
+            $key = password_hash($key, PASSWORD_DEFAULT)
         }
 
         $search = '$config[\'encryption_key\'] = \'\';';
@@ -56,5 +56,19 @@ class KeyCommand extends Command
             $output->writeln('<comment>Something went wrong check permissions</comment>');
             $output->writeln('<comment>or key is not set up.</comment>');
         }
+    }
+
+    protected function random_key_string() 
+    {
+        $source = bin2hex(openssl_random_pseudo_bytes(128));
+        $string = '';
+        $c = 0;
+        while(strlen($string) < 32) { 
+            $dec = gmp_strval(gmp_init(substr($source, $c*2, 2), 16),10);
+            if($dec > 33 && $dec < 127 && $dec !== 39)
+                $string.=chr($dec);
+            $c++;
+        }
+        return $string;
     }
 }
