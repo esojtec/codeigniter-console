@@ -17,7 +17,7 @@ class DeployCommand extends Command
     protected function configure()
     {
         $this
-            ->setName('deploy')
+            ->setName('deploy:migration')
             ->setDescription('Make a deploy of console codeigniter')
         ;
     }

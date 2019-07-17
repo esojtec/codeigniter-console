@@ -22,8 +22,6 @@ class Console
 
     public function _initialize()
     {
-        
-
         # We load here our default commands
 
         $this->application->add(new Commands\ControllerCommand());
@@ -35,6 +33,7 @@ class Console
         $this->application->add(new Commands\RollbackCommand());
         $this->application->add(new Commands\DeployCommand());
         $this->application->add(new Commands\AppCommand());
+        $this->application->add(new Commands\KeyCommand());
         
     }
 
@@ -42,7 +41,7 @@ class Console
     {
         if($command instanceof \Symfony\Component\Console\Command\Command === FALSE)
         {
-            echo 'El comando deber ser una instancia de Symfony\Component\Console\Command\Command';
+            echo 'El comando debe ser una instancia de Symfony\Component\Console\Command\Command';
             exit;
         }
 

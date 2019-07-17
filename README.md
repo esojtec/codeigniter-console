@@ -1,5 +1,5 @@
 # Codeigniter Console
-Este paquete ha sido creado probado para **Codeiginiter 3.1.10** pero no debería tener ningún problema en ejecutarse en cualquier versión mayor a Codeigniter 3.0.
+Este paquete ha sido creado probado para **Codeiginiter 3.1.10** pero no debería tener ningún problema en ejecutarse en cualquier versión mayor a **Codeigniter 3.0**.
 
 ## Instalación 
 
@@ -18,7 +18,7 @@ cp vendor/esojtec/codeigniter-console/src/artisan artisan
 ```
 y finalmente ejecutamos deploy que modificara config y creara el controlador para realizar las migraciones
 ```shell
-php artisan deploy
+php artisan deploy:migration
 ```
 ## Comandos
 Con este comando podremos ver los comandos disponibles
@@ -31,7 +31,11 @@ php artisan make:controller ControllerName --extends=my --model=UserModel
 ```
 **Modelo**
 ```shell
-php artisan make:model --extends=my --eloquent
+php artisan make:model ModelName --extends=my --eloquent
+```
+**Librerias**
+```shell
+php artisan make:library LibraryName --config
 ```
 **Vista**
 ```shell
@@ -45,8 +49,17 @@ php artisan migrate
 ```shell
 php artisan migrate:rollback --steps=3
 ```
+**Crear Comando**
+```shell
+php artisan make:command
+```
+**Generacion de clave de encriptación**
+```shell
+php artisan key:generate
+```
 ## Nuevos Comandos
-Si abrimos el archivo artisan de nuestro repositorio vamos hasta el final del archivo que se encuentra en la carpeta principal y vemos algo como esto.
+Los nuevos comandos se crean por medio de la instruccion **make:command** por medio del generador de comandos, esta nueva clase se guarda dentro de la carpeta **application/commands**.
+Una vez creada debemos cargarla atraves del archivo **artisan** localizado en la carpeta principal, nos dirigimos al final del archivo donde encontraremos lo siguiente:
 ```php
 use Esojtec\CodeigniterConsole\Console;
 
@@ -55,3 +68,5 @@ $console = new Console;
 $console->addCommand(new App\Commands\NewCommand());
 $console->run();
 ```
+Ahí agregaremos los nuevos comandos de nuestra aplicación con la instruccion *$console->addCommand(new App\Commands\NewCommand());*
+> La clase debe estar instanciada por medio de \Symfony\Component\Console\Command\Command
