@@ -70,3 +70,4 @@ $console->run();
 ```
 Ahí agregaremos los nuevos comandos de nuestra aplicación con la instruccion *$console->addCommand(new App\Commands\NewCommand());*
 > La clase debe estar instanciada por medio de \Symfony\Component\Console\Command\Command
+> Para generar la clave con la instruccion *php artisan key:generate* es necesario activar la extension "extension=php_gmp.so"
