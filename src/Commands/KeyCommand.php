@@ -32,7 +32,7 @@ class KeyCommand extends Command
         if($key == null)
         {
             $key = $this->random_key_string();
-            $key = password_hash($key, PASSWORD_DEFAULT)
+            $key = password_hash($key, PASSWORD_DEFAULT);
         }
 
         $search = '$config[\'encryption_key\'] = \'\';';
