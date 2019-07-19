@@ -3,16 +3,28 @@ Este paquete ha sido creado probado para **Codeiginiter 3.1.10** pero no deberí
 
 ## Instalación 
 
-Para comenzar la instalación del paquete **codeigniter console ** debemos clonar el repositorio.
+Para comenzar la instalación del paquete **codeigniter console ** debemos modificar nuestro composer y agregamos las siguientes lineas.
 
 ```shell
-git clone https://github.com/esojtec/codeigniter-console.git
+    "repositories":[{
+		"type": "vcs",
+		"url": "https://github.com/esojtec/codeigniter-console.git"
+    }],
+	"require": {
+		"esojtec/codeigniter-console":"dev-master#v1.0"
+	},
+	"autoload": {
+        "psr-4": {
+            "App\\Models\\": "application/models",
+			"App\\Commands\\": "application/commands"
+        }
+    }
 ```
 Ejecutamos el comando composer
 ```shell
-composer install
+composer install or composer update
 ```
-Copiamos el archivo artisan a la carpeta base
+Copiamos el archivo artisan a la carpeta principal
 ```shell
 cp vendor/esojtec/codeigniter-console/src/artisan artisan
 ```
