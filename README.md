@@ -3,7 +3,18 @@ Este paquete ha sido creado probado para **Codeiginiter 3.1.10** pero no deberí
 
 ## Instalación 
 
-Para comenzar la instalación del paquete **codeigniter console ** debemos modificar nuestro composer y agregamos las siguientes lineas.
+Para comenzar la instalación del paquete codeigniter console debemos clonar o tener el repositorio de codeigniter 3 o para tener las características de blade y eloquent de laravel clonar el repositorio de laraigniter.
+
+**Codeigniter**
+```shell
+https://github.com/bcit-ci/CodeIgniter.git
+```
+**Laraigniter**
+```shell
+https://github.com/recca0120/laraigniter.git
+```
+
+Y agregamos a composer el siguiente repositorio
 
 ```shell
     "repositories":[{
